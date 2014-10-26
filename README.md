@@ -1,25 +1,31 @@
-blankgem
---------
+rack/body_serializer
+--------------------
 
-  - [![Quality](http://img.shields.io/codeclimate/github/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/blankgem.gem)
-  - [![Coverage](http://img.shields.io/codeclimate/coverage/github/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/blankgem.gem)
-  - [![Build](http://img.shields.io/travis-ci/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://travis-ci.org/krainboltgreene/blankgem.gem)
-  - [![Dependencies](http://img.shields.io/gemnasium/krainboltgreene/blankgem.gem.svg?style=flat-square)](https://gemnasium.com/krainboltgreene/blankgem.gem)
-  - [![Downloads](http://img.shields.io/gem/dtv/blankgem.svg?style=flat-square)](https://rubygems.org/gems/blankgem)
-  - [![Tags](http://img.shields.io/github/tag/krainboltgreene/blankgem.gem.svg?style=flat-square)](http://github.com/krainboltgreene/blankgem.gem/tags)
-  - [![Releases](http://img.shields.io/github/release/krainboltgreene/blankgem.gem.svg?style=flat-square)](http://github.com/krainboltgreene/blankgem.gem/releases)
-  - [![Issues](http://img.shields.io/github/issues/krainboltgreene/blankgem.gem.svg?style=flat-square)](http://github.com/krainboltgreene/blankgem.gem/issues)
+  - [![Quality](http://img.shields.io/codeclimate/github/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/rack-body_serializer.gem)
+  - [![Coverage](http://img.shields.io/codeclimate/coverage/github/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](https://codeclimate.com/github/krainboltgreene/rack-body_serializer.gem)
+  - [![Build](http://img.shields.io/travis-ci/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](https://travis-ci.org/krainboltgreene/rack-body_serializer.gem)
+  - [![Dependencies](http://img.shields.io/gemnasium/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](https://gemnasium.com/krainboltgreene/rack-body_serializer.gem)
+  - [![Downloads](http://img.shields.io/gem/dtv/rack-body_serializer.svg?style=flat-square)](https://rubygems.org/gems/rack-body_serializer)
+  - [![Tags](http://img.shields.io/github/tag/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](http://github.com/krainboltgreene/rack-body_serializer.gem/tags)
+  - [![Releases](http://img.shields.io/github/release/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](http://github.com/krainboltgreene/rack-body_serializer.gem/releases)
+  - [![Issues](http://img.shields.io/github/issues/krainboltgreene/rack-body_serializer.gem.svg?style=flat-square)](http://github.com/krainboltgreene/rack-body_serializer.gem/issues)
   - [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](http://opensource.org/licenses/MIT)
-  - [![Version](http://img.shields.io/gem/v/blankgem.svg?style=flat-square)](https://rubygems.org/gems/blankgem)
+  - [![Version](http://img.shields.io/gem/v/rack-body_serializer.svg?style=flat-square)](https://rubygems.org/gems/rack-body_serializer)
 
-
-TODO: Write a gem description
+A middleware for serializing the body of the response based on a mapping.
 
 
 Using
 =====
 
-TODO: Write usage instructions here
+Add the middleware to the stack with a map of `Accept` matching header value to a object that responds to `#load`:
+
+``` ruby
+rack.use(Rack::BodySerializer, {
+  "application/vnd.blankapi+json; version=#{VERSION}" => Oj,
+  "application/json" => Oj
+})
+```
 
 
 Installing
@@ -27,7 +33,7 @@ Installing
 
 Add this line to your application's Gemfile:
 
-    gem "blankgem", "~> 1.0"
+    gem "rack-body_serializer", "~> 1.0"
 
 And then execute:
 
@@ -35,7 +41,7 @@ And then execute:
 
 Or install it yourself with:
 
-    $ gem install blankgem
+    $ gem install rack-body_serializer
 
 
 Contributing
